@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mauiApp1="clr-namespace:MauiApp1"
+             x:Class="MauiApp1.MainPage"
+             x:DataType="mauiApp1:MainPageViewModel">
+
+    <Grid RowDefinitions="Auto,Auto, Auto, Auto,Auto,Auto,Auto" RowSpacing="20">
+        <Label Grid.Row="0" Text="The entry with the binding:" FontSize="18" BackgroundColor="#CCCCCC"/>
+        <Entry Grid.Row="1" Text="{Binding EntryText,Mode=TwoWay}" BackgroundColor="#CCCCCC"/>
+        <Label Grid.Row="2" Text="The editor with the same binding:" FontSize="18"/>
+        <Editor Grid.Row="3" Text="{Binding EntryText,Mode=TwoWay}" BackgroundColor="#CCCCCC"/>
+        <Label Grid.Row="4" Text="A label with the same binding:" FontSize="18"/>
+        <Label Grid.Row="5" Text="{Binding EntryText}" BackgroundColor="#CCCCCC" />
+        <Button Grid.Row="6" Clicked="Button_OnClicked" Text="Set bound entry value to null"/>
+    </Grid>
+
+</ContentPage>
