@@ -8,9 +8,4 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         BindingContext = new MainPageViewModel();
     }
-
-    private void Button_OnClicked(object sender, EventArgs e)
-    {
-        ((MainPageViewModel)BindingContext).EntryText = null;
-    }
 }

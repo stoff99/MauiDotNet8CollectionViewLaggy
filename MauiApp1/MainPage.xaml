@@ -4,15 +4,29 @@
              xmlns:mauiApp1="clr-namespace:MauiApp1"
              x:Class="MauiApp1.MainPage"
              x:DataType="mauiApp1:MainPageViewModel">
-
-    <Grid RowDefinitions="Auto,Auto, Auto, Auto,Auto,Auto,Auto" RowSpacing="20">
-        <Label Grid.Row="0" Text="The entry with the binding:" FontSize="18" BackgroundColor="#CCCCCC"/>
-        <Entry Grid.Row="1" Text="{Binding EntryText,Mode=TwoWay}" BackgroundColor="#CCCCCC"/>
-        <Label Grid.Row="2" Text="The editor with the same binding:" FontSize="18"/>
-        <Editor Grid.Row="3" Text="{Binding EntryText,Mode=TwoWay}" BackgroundColor="#CCCCCC"/>
-        <Label Grid.Row="4" Text="A label with the same binding:" FontSize="18"/>
-        <Label Grid.Row="5" Text="{Binding EntryText}" BackgroundColor="#CCCCCC" />
-        <Button Grid.Row="6" Clicked="Button_OnClicked" Text="Set bound entry value to null"/>
+<Grid RowDefinitions="Auto,*">
+    
+    <Label Grid.Row="0" Text="Label in Grid 1" 
+           FontSize="18" 
+           BackgroundColor="#CCCCCC"/>
+    
+    <Grid Grid.Row="1" RowDefinitions="*">
+        
+        <CollectionView Grid.Row="0" 
+                        ItemsSource="{Binding IntegerItems}" 
+                        ItemSizingStrategy="MeasureFirstItem" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="mauiApp1:IntegerQuestionItem">
+                    
+                        <Label Text="{Binding Value }" FontSize="39"
+                               TextColor="Red"
+                               HorizontalTextAlignment="Center" />
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </Grid>
+</Grid>
+    
 
 </ContentPage>
